@@ -1,0 +1,26 @@
+Onde vai o trabalhe conosco?
+
+Onde vão as redes sociais?
+
+Precisa de tantos campos no contato?
+
+Precisa de um item no menu para o catalogo, ou pode ir dentro da página de produtos?
+
+Itens do submenu empresa?
+
+Mostrar a lista de futuras feiras na página inicial?
+
+Marcos importantes será estático?
+
+Página de serviços será estática?
+
+Menu do footer
+
+Botão "Solicitar Orçamento" vai para a página de contato?
+
+Tamanho de imagens
+topo das páginas [1280 x300]
+carousel [1400 x 510]
+destaques home [500 x 300]
+produtos [500 x 400]? ver sobre tabela
+

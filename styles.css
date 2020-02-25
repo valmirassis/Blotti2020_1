@@ -1,0 +1,100 @@
+/* itens gerais */
+img { max-width: 100%;}
+.navbar {
+    background-color: #000!important;
+  
+}
+.navbar a {
+    color: #fff!important;
+}
+.navbar a:hover {
+ color: rgb(139, 153, 139)!important;
+
+}
+
+.footer {
+ background-color: #000;
+ padding-top: 30px; color:#fff;
+ padding-bottom: 30px;
+}
+.footer .status a{
+    color: #fff;
+
+}
+.content {
+ background-color: #cccccc;
+ padding-top: 20px;
+ padding-bottom: 20px;
+}
+/* index.php */
+.carousel-caption h2 {
+ font-size: 75px;
+ color: rgb(0, 0, 0);
+ text-shadow: #fff 2px 3px 2px;
+}
+.carousel-caption p {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    text-shadow: #fff 2px 2px 2px;
+   }
+
+   .carousel-indicators li {
+    background-color: #000;
+}
+.destaques {
+    background-color: #424141;
+}
+/* Páginas */
+.topo-page {margin-top: 90px;}
+.topo-page img {
+    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 21px 5px rgba(0,0,0,0); 
+box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 21px 5px rgba(0,0,0,0);
+
+}
+
+
+.destaque-item {
+    margin: 20px;
+    text-align: center;
+    /* border: 1px solid #000; */
+}
+.destaque-item h4 {
+  text-align: center;
+}
+.destaque-item img {
+    max-width: 100%;
+    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 21px 5px rgba(0,0,0,0); 
+box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 21px 5px rgba(0,0,0,0);
+}
+.destaque-item a {text-decoration: none; color: #000;}
+.destaque-item a:hover {color: #57a58e;}
+.destaque-produtos .destaque-item{border:1px solid #000}
+.nav-empresa {padding-top: 20px;}
+.nav-empresa a {
+    color: black;
+    font-weight: bold;
+}
+.nav-empresa a:hover {color: #57a58e;}
+.video {width:100%; height:440px;}
+.titulo-pagina {color: #57a58e; font-weight: bold;}
+/*  Formulários */
+.input-group2 {margin-top: 5px;} 
+.textarea {height: 150px!important;}
+.footer .status a:hover {text-decoration: none;}
+.footer2 { background-color: rgb(31, 31, 31);  padding-top: 20px; color:#fff;
+    padding-bottom: 20px; text-align: center;}
+    .icon-footer-big {font-size: 70px;color: #57a58e;}
+.btn-blotti {background-color: #57a58e;}
+.btn-blotti:hover {background-color: rgb(31, 31, 31);color: #fff;}
+#btnGroupAddon {
+    width: 40px;
+}
+.btn-success {
+        background-color: #57a58e;
+ }
+
+
+
+
+
+ 

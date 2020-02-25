@@ -1,0 +1,44 @@
+body {
+    margin: 0px;
+    background-color: #cccccc!important;
+}
+
+.login {    
+    margin: 50px auto;
+    max-width: 350px;
+    flex: 1;
+    background-color: #5e555525;
+    padding: 15px;
+    border-radius: 5px;
+}
+.content {
+   
+    padding-top: 20px;
+    height: 100%;
+    
+}
+.form-group{
+    width: 100%;
+}
+.navbar {
+    background-color: #000!important;
+  
+}
+.navbar a {
+    color: #fff!important;
+}
+.navbar a:hover {
+ color: rgb(139, 153, 139)!important;
+
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+}
+.item .fas {
+    color:#000;
+}
+.direita {
+    text-align: right;
+    margin-bottom: 8px;
+}
