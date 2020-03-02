@@ -2,28 +2,28 @@
 require_once("verifica.php");
 include ('conecta.php');
 $cod_usuario = $_SESSION['cod'];
-$pasta = "../arquivos/layout/destaques/";     
-$sucesso = "<script>alert('Operação realizada com sucesso');</script><meta http-equiv='refresh' content='0;URL=home.php?page=Destaques'> ";   
-$erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta http-equiv='refresh' content='0;URL=home.php?page=Destaques'> ";  
+$pasta = "../arquivos/layout/carousel/";     
+$sucesso = "<script>alert('Operação realizada com sucesso');</script><meta http-equiv='refresh' content='0;URL=home.php?page=Carousel'> ";   
+$erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta http-equiv='refresh' content='0;URL=home.php?page=Carousel'> ";  
 ?> 
 
    <?php
  if (isset($_POST['documento'])){
  $cod = $_POST['documento'];
- $sqlb = mysqli_query($link,"SELECT * FROM destaques where cod=$cod") or die("ERRO NO SQL");
+ $sqlb = mysqli_query($link,"SELECT * FROM carousel where cod=$cod") or die("ERRO NO SQL");
  $dados = mysqli_fetch_array($sqlb);
                     $nome = $dados['nome'];
-                    $linkpagina = $dados['linkpagina'];
+                    $frase = $dados['frase'];
                     $foto = $dados['foto'];
                     $posicao = $dados['posicao'];
                     $status = $dados['status'];
 ?>
-     <form action="destaqueBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
+     <form action="carouselBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
                        <input type="hidden" name="cod" value="<?php echo $cod?>">
                      Nome: 
                     <input type="text" name="nome" class="form-control input-group2" required value="<?php echo $nome ?>">
                     Link: 
-                    <input type="url" name="linkpagina" class="form-control input-group2" required value="<?php echo $linkpagina ?>">
+                    <input type="text" name="frase" class="form-control input-group2" required value="<?php echo $frase ?>">
                     Posição:
                     <select name="posicao" class="form-control input-group2">
                     <option value="<?php echo $posicao ?>"><?php echo $posicao ?></option>
@@ -35,8 +35,8 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
                     <input type="radio" name="status" value="1" <?php if ($status == 1) echo "checked"; ?>> Ativo
                     <input type="radio" name="status" value="0" <?php if ($status == 0) echo "checked"; ?>>  Inativo<br>
                     <input type="hidden" name="fotoAtual" value="<?php echo $foto?>">
-                    Foto <b>[400 x 240 px]</b>: <Br>
-                    <img src="<?php echo $pasta.$foto?>" width="150px"> <br>
+                    Foto:  <b>[1400 x 510 px]</b> <br>
+                    <img src="<?php echo $pasta.$foto?>" width="350px"> <br>
                     Alterar imagem:
                     <input type="radio" name="alteraFoto" value="sim" class="simChecked"> Sim
                     <input type="radio" name="alteraFoto" value="nao" checked class="naoChecked">  Não
@@ -48,7 +48,7 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
 }
 else if (isset($_POST['cadastrar'])){
                       $nome = $_POST['nome'];
-                      $linkpagina = $_POST['linkpagina'];
+                      $frase = $_POST['frase'];
                       $foto = $_FILES['foto'];
                       $posicao = $_POST['posicao'];
                                                 
@@ -80,8 +80,8 @@ else if (isset($_POST['cadastrar'])){
              
                 //  echo "Link: $link - nome: $nome - foto: $nomeFoto";
                             // Insere os dados no banco
-                            $sql = mysqli_query($link,"INSERT INTO destaques (`cod`,`nome`,`linkpagina`,`foto`,`posicao`) VALUES 
-                            ('','$nome','$linkpagina','$nomeFoto', '$posicao')") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
+                            $sql = mysqli_query($link,"INSERT INTO carousel (`cod`,`nome`,`frase`,`foto`,`posicao`) VALUES 
+                            ('','$nome','$frase','$nomeFoto', '$posicao')") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
                             // Se os dados forem inseridos com sucesso
                             if($sql) {
                                 echo $sucesso; 
@@ -92,7 +92,7 @@ else if (isset($_POST['cadastrar'])){
                             else if (isset($_POST['editar'])){
                                 $cod = $_POST['cod'];
                                 $nome = $_POST['nome'];
-                                $linkpagina = $_POST['linkpagina'];
+                                $frase = $_POST['frase'];
                                 $alteraFoto = $_POST['alteraFoto'];
                                 $status = $_POST['status'];
                                 $posicao = $_POST['posicao'];
@@ -129,9 +129,9 @@ else if (isset($_POST['cadastrar'])){
                                             endif;  
                                        endif;  
                                   endif;                
-                                  $sql = mysqli_query($link,"UPDATE destaques SET nome='$nome', linkpagina='$linkpagina', status=$status, foto='$nomeFoto', posicao='$posicao' WHERE cod=$cod ") or die ("Houve erro na gravação dos dados" . mysqli_error());              
+                                  $sql = mysqli_query($link,"UPDATE carousel SET nome='$nome', frase='$frase', status=$status, foto='$nomeFoto', posicao='$posicao' WHERE cod=$cod ") or die ("Houve erro na gravação dos dados" . mysqli_error());              
                                 else:
-                    $sql = mysqli_query($link,"UPDATE destaques SET nome='$nome', linkpagina='$linkpagina', status=$status, posicao='$posicao' WHERE cod=$cod") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
+                    $sql = mysqli_query($link,"UPDATE carousel SET nome='$nome', frase='$frase', status=$status, posicao='$posicao' WHERE cod=$cod") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
                 endif;          
                 if($sql) {
                   echo $sucesso; 
@@ -142,11 +142,11 @@ else if (isset($_POST['cadastrar'])){
                   }  else if (isset($_GET['excluir'])){
                       $cod= $_GET['cod'];
                      
-                      $sqlb = mysqli_query($link,"SELECT foto FROM destaques where cod=$cod") or die("ERRO NO SQL");
+                      $sqlb = mysqli_query($link,"SELECT foto FROM carousel where cod=$cod") or die("ERRO NO SQL");
                       $dados = mysqli_fetch_array($sqlb);
                                          $foto = $dados['foto'];
                                          unlink($pasta.$foto);                 
-                    $sqld = mysqli_query($link,"DELETE FROM destaques where cod=$cod") or die("ERRO NO SQL");
+                    $sqld = mysqli_query($link,"DELETE FROM carousel where cod=$cod") or die("ERRO NO SQL");
                     if($sqld) {
                       echo $sucesso; 
                     } else {

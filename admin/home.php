@@ -77,26 +77,25 @@ if (isset($_GET['page'])){
 </div>
 
     <?php
-    if ($page == "Categorias") {
-    $sqlv = mysqli_query($link,"SELECT c.*, s.nome as nomeSer FROM catProdutos as c, seriados as s where c.seriados=s.cod  ORDER BY c.cod DESC") or die("ERRO NO SQL". mysqli_error());
-    $rowv = mysqli_num_rows($sqlv);
-  if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
-while($rowv = mysqli_fetch_assoc($sqlv)){
-$cod = $rowv['cod'];
-$seriados = $rowv['nomeSer'];
- $nome = $rowv['nome'];
- $status = $rowv['status'];
-$descricao = $rowv['descricao'];
-	
-$status == 1 ? $status = "Ativo" : $status = "Inativo";
-
-echo "<div class='alert alert-dark item' role='alert'> 
-<div>  <b>$nome</b> <br> $descricao <br>";
-echo "<b>Seriado:</b> ".$seriados." - <b>Status:</b> ".$status; 
-echo "</div><div>";
-echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
-<a href='categoriaBd.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
-</div></div>";
+    if ($page == "Carousel") {
+      $sqlv = mysqli_query($link,"SELECT * FROM carousel") or die("ERRO NO SQL". mysqli_error());
+      $rowv = mysqli_num_rows($sqlv);
+    if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
+    while($rowv = mysqli_fetch_assoc($sqlv)){
+    $cod = $rowv['cod'];
+    $nome = $rowv['nome'];
+    $status = $rowv['status'];
+    $frase = $rowv['frase'];
+    $posicao = $rowv['posicao'];
+    $status == 1 ? $status = "Ativo" : $status = "Inativo";
+    
+    echo "<div class='alert alert-dark item' role='alert'> 
+    <div>  <b>$nome</b> <br> <b>Frase:</b> $frase <br>";
+    echo "<b>Status:</b> $status - <b> Posição </b> $posicao"; 
+    echo "</div><div>";
+    echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
+    <a href='carouselBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+    </div></div>";
 }
   echo "</div>";
 } else if  ($page == "Popups") {
@@ -130,13 +129,13 @@ while($rowv = mysqli_fetch_assoc($sqlv)){
 $cod = $rowv['cod'];
 $nome = $rowv['nome'];
 $status = $rowv['status'];
-$link = $rowv['link'];
-
+$linkpagina = $rowv['linkpagina'];
+$posicao = $rowv['posicao'];
 $status == 1 ? $status = "Ativo" : $status = "Inativo";
 
 echo "<div class='alert alert-dark item' role='alert'> 
-<div>  <b>$nome</b> <br> $link <br>";
-echo "<b>Status:</b> ".$status; 
+<div>  <b>$nome</b> <br> <b>Link:</b> $linkpagina <br>";
+echo "<b>Status:</b> $status - <b> Posição </b> $posicao"; 
 echo "</div><div>";
 echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
 <a href='destaqueBd.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
@@ -156,7 +155,58 @@ echo "</div>";
     </div>
 </div>
 </section>
+<!-- Cadastra Carousel -->
+<div class="modal fade " id="modalCadastraCarousel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastro de Carousel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="carouselBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
+                    Nome: 
+                    <input type="text" name="nome" class="form-control input-group2" required>
+                    Frase: 
+                    <input type="text" name="frase" class="form-control input-group2" required>
+                    Posição:
+                    <select name="posicao" class="form-control input-group2" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
 
+                    </select>
+                    Foto:  <b>[1400 x 510 px]</b> <input type="file" value="selecione" name="foto" class="form-control input-group2" required>
+                    <br> <br>
+                    <input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-success btn-block">
+                </form>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<!-- Edita Destaque -->
+<div class="modal fade " id="modalEditaCarousel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edição de Carousel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="fetched-data-carousel">
+          <!-- Vai abrir aqui o conteudo do arquivo anexo -->
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
 <!-- Cadastra Destaque -->
 <div class="modal fade " id="modalCadastraDestaques" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -172,9 +222,16 @@ echo "</div>";
                     Nome: 
                     <input type="text" name="nome" class="form-control input-group2" required>
                     Link: 
-                    <input type="text" name="link" class="form-control input-group2" required>
-                   
-                    Foto: <input type="file" value="selecione" name="foto" class="form-control input-group2" required>
+                    <input type="url" name="linkpagina" class="form-control input-group2" required>
+                    Posição:
+                    <select name="posicao" class="form-control input-group2" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+
+                    </select>
+                    Foto <b>[400 x 240 px]</b>: <input type="file" value="selecione" name="foto" class="form-control input-group2" required>
                     <br> <br>
                     <input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-success btn-block">
                 </form>

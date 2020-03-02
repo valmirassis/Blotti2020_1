@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Fev-2020 às 23:37
+-- Tempo de geração: 02-Mar-2020 às 11:28
 -- Versão do servidor: 10.4.8-MariaDB
 -- versão do PHP: 7.1.33
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `blotti2020`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `carousel`
+--
+
+CREATE TABLE `carousel` (
+  `cod` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `frase` text NOT NULL,
+  `foto` text NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `posicao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `carousel`
+--
+
+INSERT INTO `carousel` (`cod`, `nome`, `frase`, `foto`, `status`, `posicao`) VALUES
+(2, 'Destaque 1', 'qualquer coisa', 'blotti_empresa.jpg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -5631,6 +5653,28 @@ INSERT INTO `cidade` (`id`, `nome`, `estado`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `destaques`
+--
+
+CREATE TABLE `destaques` (
+  `cod` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `linkpagina` text NOT NULL,
+  `foto` text NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `posicao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `destaques`
+--
+
+INSERT INTO `destaques` (`cod`, `nome`, `linkpagina`, `foto`, `status`, `posicao`) VALUES
+(1, 'Destaque 3', 'https://mail.google.com/', 'cidades.PNG', 0, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `estado`
 --
 
@@ -5696,6 +5740,26 @@ INSERT INTO `pais` (`id`, `nome`, `sigla`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `popups`
+--
+
+CREATE TABLE `popups` (
+  `cod` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `foto` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `popups`
+--
+
+INSERT INTO `popups` (`cod`, `nome`, `foto`, `status`) VALUES
+(1, 'teste', 0, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `produtos`
 --
 
@@ -5736,7 +5800,8 @@ CREATE TABLE `seriados` (
 
 INSERT INTO `seriados` (`cod`, `nome`, `descricao`, `foto`, `status`) VALUES
 (1, 'G9', 'Um g8 qualquer', 'destaque4.jpg', 1),
-(2, 'G10', 'G10 G10', 'destaque2.jpg', 0);
+(2, 'G10', 'G10 G10', 'destaque2.jpg', 0),
+(4, 'G20', 'ok', 'destaque1.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -5765,6 +5830,12 @@ INSERT INTO `usuario` (`cod`, `login`, `senha`, `nome`, `tipo`, `setor`) VALUES
 --
 
 --
+-- Índices para tabela `carousel`
+--
+ALTER TABLE `carousel`
+  ADD PRIMARY KEY (`cod`);
+
+--
 -- Índices para tabela `catprodutos`
 --
 ALTER TABLE `catprodutos`
@@ -5779,6 +5850,12 @@ ALTER TABLE `cidade`
   ADD KEY `fk_Cidade_estado` (`estado`);
 
 --
+-- Índices para tabela `destaques`
+--
+ALTER TABLE `destaques`
+  ADD PRIMARY KEY (`cod`);
+
+--
 -- Índices para tabela `estado`
 --
 ALTER TABLE `estado`
@@ -5790,6 +5867,12 @@ ALTER TABLE `estado`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `popups`
+--
+ALTER TABLE `popups`
+  ADD PRIMARY KEY (`cod`);
 
 --
 -- Índices para tabela `produtos`
@@ -5814,6 +5897,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de tabela `carousel`
+--
+ALTER TABLE `carousel`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de tabela `catprodutos`
 --
 ALTER TABLE `catprodutos`
@@ -5824,6 +5913,12 @@ ALTER TABLE `catprodutos`
 --
 ALTER TABLE `cidade`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
+
+--
+-- AUTO_INCREMENT de tabela `destaques`
+--
+ALTER TABLE `destaques`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `estado`
@@ -5838,6 +5933,12 @@ ALTER TABLE `pais`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de tabela `popups`
+--
+ALTER TABLE `popups`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
@@ -5847,7 +5948,7 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `seriados`
 --
 ALTER TABLE `seriados`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas
