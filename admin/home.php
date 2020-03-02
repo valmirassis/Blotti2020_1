@@ -2,6 +2,7 @@
   require_once("verifica.php");
     include ('conecta.php');
   $cod_usuario = $_SESSION['cod'];
+  $nomeUsuario = $_SESSION['nomeUsuario']
     ?>
        <!DOCTYPE html>
     <html lang="pt-br">
@@ -38,9 +39,9 @@
             <li class="nav-item">
               <a class="nav-link anima" href="produtos.php"><i class="fas fa-archive"></i> Produtos</a>
             </li>        
-            <!-- <li class="nav-item">
-                <a class="nav-link anima" href="servicos.php"><i class="fas fa-tag"></i> Serviços</a>
-              </li> -->
+             <li class="nav-item">
+                <a class="nav-link anima" href="logoff.php"><i class="fas fa-user"></i> <?php echo $nomeUsuario ?> [ Sair ]</a>
+              </li> 
       
           </ul>
         </div> 
