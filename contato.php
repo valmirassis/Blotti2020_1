@@ -1,5 +1,5 @@
 <?php
-include ('admin/conecta.php');
+include ('../admin20/conecta.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -58,7 +58,13 @@ include ('admin/conecta.php');
                       </li>
                       <li class="nav-item">
                           <a class="nav-link anima" href="servicos.php"><i class="fas fa-cogs"></i> Serviços</a>
-                      </li>             
+                      </li>   
+                      <li class="nav-item">
+                          <a class="nav-link anima" href="http://conteudo.blotti.com.br/catalogo" target="_blank"><i class="fas fa-book"></i> Catálogo</a>
+                      </li>  
+                      <li class="nav-item">
+                          <a class="nav-link anima" href="trabalhe-conosco.php" target="_blank"><i class="fas fa-cubes"></i> Trabalhe conosco</a>
+                      </li>         
                         <li class="nav-item">
                                 <a class="nav-link anima" href="contato.php"><i class="fas fa-envelope"></i> Contato</a>
                         </li>    
@@ -181,21 +187,7 @@ include ('admin/conecta.php');
                                 <input type="text" class="form-control" placeholder="País" aria-label="Informe seu País" aria-describedby="btnGroupAddon" name="pais" required>
                               </div>
 
-                              <div class="input-group input-group2">
-                                <div class="input-group-prepend">
-                                  <div class="input-group-text" id="btnGroupAddon"><i class="fas fa-map-marker-alt"></i></div>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Endereço" aria-label="Informe seu Endereço" aria-describedby="btnGroupAddon" name="endereco" required>
-                              </div>
-    
-
-                              <div class="input-group input-group2">
-                                <div class="input-group-prepend">
-                                  <div class="input-group-text" id="btnGroupAddon"><i class="fas fa-map-marker-alt"></i></i></div>
-                                </div>
-                                <input type="text" class="form-control" placeholder="CEP" aria-label="Informe seu Cep" aria-describedby="btnGroupAddon" name="cep" required>
-                              </div>
-                              <div class="input-group input-group2">
+                             <div class="input-group input-group2">
                                 <div class="input-group-prepend">
                                   <div class="input-group-text" id="btnGroupAddon"><i class="fas fa-comments"></i></div>
                                 </div>
@@ -287,7 +279,7 @@ include ('admin/conecta.php');
     </div>
   </div>
 </section>
-<script src="main.js"></script>
+
 <script>
        $(document).ready(function(){
         // Evento change no campo tipo  

@@ -2,7 +2,8 @@
 require_once("verifica.php");
 include ('conecta.php');
 $cod_usuario = $_SESSION['cod'];
-$pasta = "../arquivos/layout/carousel/";     
+$pasta = "../arquivos/layout/carousel/";  
+  
 $sucesso = "<script>alert('Operação realizada com sucesso');</script><meta http-equiv='refresh' content='0;URL=home.php?page=Carousel'> ";   
 $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta http-equiv='refresh' content='0;URL=home.php?page=Carousel'> ";  
 ?> 
@@ -156,7 +157,7 @@ else if (isset($_POST['cadastrar'])){
                     
 
                     ?>
-   <script src="jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
  $('.simChecked').click(function(){    
                     $('.inputImagem').fadeIn(1000);                

@@ -55,6 +55,12 @@
                       </li>
                       <li class="nav-item">
                           <a class="nav-link anima" href="servicos.php"><i class="fas fa-cogs"></i> Serviços</a>
+                      </li> 
+                      <li class="nav-item">
+                          <a class="nav-link anima" href="http://conteudo.blotti.com.br/catalogo" target="_blank"><i class="fas fa-book"></i> Catálogo</a>
+                      </li>  
+                      <li class="nav-item">
+                          <a class="nav-link anima" href="trabalhe-conosco.php" target="_blank"><i class="fas fa-cubes"></i> Trabalhe conosco</a>
                       </li>             
                         <li class="nav-item">
                                 <a class="nav-link anima" href="contato.php"><i class="fas fa-envelope"></i> Contato</a>
@@ -116,31 +122,44 @@
           <div class="container">
           <div clas="destaque-home">
             <div class="row">
-              <div class="col-md-6 col-sm">
+              <div class="col-md-4 col-sm">
                 <div class="destaque-item">
                   <a href=""><img src="img/destaque1.jpg">
                   <h4>Seriado 1 </h4> </a>
                 </div>
               </div>
-              <div class="col-md-6 col-sm">
+              <div class="col-md-4 col-sm">
                 <div class="destaque-item">
                 <a href="">  <img src="img/destaque2.jpg">
                   <h4>Seriado 2 </h4> </a>
                 </div>
               </div>
-              <div class="col-md-6 col-sm">
+              <div class="col-md-4 col-sm">
                 <div class="destaque-item">
                 <a href="">  <img src="img/destaque3.jpg">
                   <h4>Seriado 3 </h4> </a>
                 </div>
             
               </div>
-              <div class="col-md-6 col-sm">
+              <div class="col-md-4 col-sm">
                 <div class="destaque-item">
                 <a href="">  <img src="img/destaque4.jpg">
                   <h4>Seriado 4 </h4> </a>
                 </div> 
               </div>
+              <div class="col-md-4 col-sm">
+                <div class="destaque-item">
+                <a href="">  <img src="img/destaque2.jpg">
+                  <h4>Seriado 5 </h4> </a>
+                </div> 
+              </div>
+              <div class="col-md-4 col-sm">
+                <div class="destaque-item">
+                <a href="">  <img src="img/destaque1.jpg">
+                  <h4>Seriado 6 </h4> </a>
+                </div> 
+              </div>
+
             </div>
            
         </div>
@@ -148,14 +167,14 @@
         <section class="destaques">
 <div class="container">
   <div class="row">
-  <div class="col-md-4 col-sm">
+  <div class="col-md-3 col-sm">
                 <div class="destaque-item">
                   <a href=""><img src="img/destaques.jpg"> </a>
                   
   </div>
   
 </div>
-<div class="col-md-4 col-sm">
+<div class="col-md-3 col-sm">
                 <div class="destaque-item">
                   <a href=""><img src="img/destaques2.jpg"> </a>
                   
@@ -163,15 +182,22 @@
   
 </div>
 
-<div class="col-md-4 col-sm">
+<div class="col-md-3 col-sm">
                 <div class="destaque-item">
                   <a href=""><img src="img/destaques3.jpg"> </a>
                   
   </div>
   
 </div>
-
+<div class="col-md-3 col-sm">
+                <div class="destaque-item">
+                  <a href=""><img src="img/destaques3.jpg"> </a>
+                  
+  </div>
+  
+</div>
  
+
 </div>
 </div>
 <section class="footer">

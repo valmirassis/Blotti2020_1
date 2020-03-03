@@ -115,7 +115,7 @@ echo "<div class='alert alert-dark item' role='alert'>
 echo "<b>Status:</b> ".$status; 
 echo "</div><div>";
 echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
-<a href='popupBd.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+<a href='popupBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
 </div></div>";
 
 
@@ -139,7 +139,7 @@ echo "<div class='alert alert-dark item' role='alert'>
 echo "<b>Status:</b> $status - <b> Posição </b> $posicao"; 
 echo "</div><div>";
 echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
-<a href='destaqueBd.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+<a href='destaqueBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
 </div></div>";
 }
 echo "</div>";

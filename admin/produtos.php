@@ -86,7 +86,7 @@ if (isset($_GET['page'])){
 
     <?php
     if ($page == "Categorias") {
-    $sqlv = mysqli_query($link,"SELECT c.*, s.nome as nomeSer FROM catProdutos as c, seriados as s where c.seriados=s.cod  ORDER BY c.cod DESC") or die("ERRO NO SQL". mysqli_error());
+    $sqlv = mysqli_query($link,"SELECT c.*, s.nome as nomeSer FROM catprodutos as c, seriados as s where c.seriados=s.cod  ORDER BY c.cod DESC") or die("ERRO NO SQL". mysqli_error());
     $rowv = mysqli_num_rows($sqlv);
   if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
 while($rowv = mysqli_fetch_assoc($sqlv)){
@@ -103,7 +103,7 @@ echo "<div class='alert alert-dark item' role='alert'>
 echo "<b>Seriado:</b> ".$seriados." - <b>Status:</b> ".$status; 
 echo "</div><div>";
 echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
-<a href='categoriaBd.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+<a href='categoriaBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
 </div></div>";
 }
   echo "</div>";
@@ -124,7 +124,7 @@ echo "<div class='alert alert-dark item' role='alert'>
 echo "<b>Status:</b> ".$status; 
 echo "</div><div>";
 echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
-<a href='seriadoBd.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+<a href='seriadoBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
 </div></div>";
 
 
@@ -132,7 +132,7 @@ echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$c
 
 
 } else {
-  $sqlv = mysqli_query($link,"SELECT p.*, c.nome as nomeCat FROM catProdutos as c, produtos as p where c.cod=p.categoria  ORDER BY p.cod DESC") or die("ERRO NO SQL". mysqli_error());
+  $sqlv = mysqli_query($link,"SELECT p.*, c.nome as nomeCat FROM catprodutos as c, produtos as p where c.cod=p.categoria  ORDER BY p.cod DESC") or die("ERRO NO SQL". mysqli_error());
   $rowv = mysqli_num_rows($sqlv);
 if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
 while($rowv = mysqli_fetch_assoc($sqlv)){
@@ -149,7 +149,7 @@ echo "<div class='alert alert-dark item' role='alert'>
 echo "<b>Categoria:</b> ".$categoria." - <b>Status:</b> ".$status; 
 echo "</div><div>";
 echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
-<a href='produtoBd.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+<a href='produtoBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
 </div></div>";
 }
 echo "</div>";
@@ -182,7 +182,7 @@ echo "</div>";
                      <select name="seriados" class="form-control input-group2" required>
                      <option></option>
                      <?php
-                        $sqlc = mysqli_query($link,"SELECT * FROM seriados where status = 1 ORDER BY cod DESC") or die("ERRO NO SQL");
+                        $sqlc = mysqli_query($link,"SELECT * FROM seriados where status = 1 ORDER BY cod DESC") or die("ERRO NO SQL ");
                         $rowc = mysqli_num_rows($sqlc);
                       if ($rowc <= 0) { echo "<br>Sem Seriados cadastrados";}
                     while($rowc = mysqli_fetch_assoc($sqlc)){
@@ -285,7 +285,7 @@ echo "</div>";
                      <select name="categoria" class="form-control input-group2" required>
                      <option></option>
                      <?php
-                        $sqlc = mysqli_query($link,"SELECT * FROM catProdutos where status = 1 ORDER BY cod DESC") or die("ERRO NO SQL");
+                        $sqlc = mysqli_query($link,"SELECT * FROM catprodutos where status = 1 ORDER BY cod DESC") or die("ERRO NO SQL");
                         $rowc = mysqli_num_rows($sqlc);
                       if ($rowc <= 0) { echo "<br>Sem Categorias cadastradas";}
                     while($rowc = mysqli_fetch_assoc($sqlc)){

@@ -55,7 +55,13 @@
                       </li>
                       <li class="nav-item">
                           <a class="nav-link anima" href="servicos.php"><i class="fas fa-cogs"></i> Serviços</a>
-                      </li>             
+                      </li>      
+                      <li class="nav-item">
+                          <a class="nav-link anima" href="http://conteudo.blotti.com.br/catalogo" target="_blank"><i class="fas fa-book"></i> Catálogo</a>
+                      </li>  
+                      <li class="nav-item">
+                          <a class="nav-link anima" href="trabalhe-conosco.php" target="_blank"><i class="fas fa-cubes"></i> Trabalhe conosco</a>
+                      </li>        
                         <li class="nav-item">
                                 <a class="nav-link anima" href="contato.php"><i class="fas fa-envelope"></i> Contato</a>
                         </li>    

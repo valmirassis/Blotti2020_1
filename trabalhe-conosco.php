@@ -55,13 +55,13 @@
                       </li>
                       <li class="nav-item">
                           <a class="nav-link anima" href="servicos.php"><i class="fas fa-cogs"></i> Serviços</a>
-                      </li>  
+                      </li>      
                       <li class="nav-item">
                           <a class="nav-link anima" href="http://conteudo.blotti.com.br/catalogo" target="_blank"><i class="fas fa-book"></i> Catálogo</a>
                       </li>  
                       <li class="nav-item">
                           <a class="nav-link anima" href="trabalhe-conosco.php" target="_blank"><i class="fas fa-cubes"></i> Trabalhe conosco</a>
-                      </li>            
+                      </li>        
                         <li class="nav-item">
                                 <a class="nav-link anima" href="contato.php"><i class="fas fa-envelope"></i> Contato</a>
                         </li>    
@@ -72,61 +72,20 @@
             </header>
     <div class="container topo-page">
                <div class="row">
-              <img src="img/blotti_produtos.jpg" alt="" class="img-responsive">     
+              <img src="img/blotti_empresa.jpg" alt="" class="img-responsive">     
 </div>
                            
         </div>
 
         <section class="content">
           <div class="container">
-    <h2 class="titulo-pagina"> <i class="fas fa-angle-double-right"></i> Produtos</h2>
+    <h2 class="titulo-pagina"> <i class="fas fa-angle-double-right"></i> Trabalhe Conosco</h2>
 
              
-    <div clas="destaque-produtos">
-            <div class="row">
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                  <a href=""><img src="img/destaque1.jpg">
-                  <h4>Seriado 1 </h4> Uma pequena descrição sobre os itens deste Seriado </a>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque2.jpg">
-                  <h4>Seriado 2 </h4> Uma pequena descrição sobre os itens deste Seriado </a>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque3.jpg">
-                  <h4>Seriado 3 </h4> Uma pequena descrição sobre os itens deste Seriado </a>
-                </div>
-            
-              </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque4.jpg">
-                  <h4>Seriado 4 </h4> Uma pequena descrição sobre os itens deste Seriado </a>
-                </div> 
-              </div>
-
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque4.jpg">
-                  <h4>Seriado 5 </h4> Uma pequena descrição sobre os itens deste Seriado </a>
-                </div> 
-              </div>
-
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque4.jpg">
-                  <h4>Seriado 6 </h4> Uma pequena descrição sobre os itens deste Seriado </a>
-                </div> 
-              </div>
-
-            </div>
-           
-        </div>
+                  <div class="row">
+                     
+                     
+                  </div>
                
                    
                 </div>       

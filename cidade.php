@@ -1,5 +1,5 @@
 ﻿<?php
-include ('admin/conecta.php');
+include ('../admin20/conecta.php');
 
 $estado = $_POST['estado'];
 

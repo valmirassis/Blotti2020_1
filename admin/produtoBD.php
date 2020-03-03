@@ -10,7 +10,7 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
    <?php
  if (isset($_POST['documento'])){
  $cod = $_POST['documento'];
- $sqlb = mysqli_query($link,"SELECT p.*, c.nome as nomeCat FROM catProdutos as c, produtos as p where p.cod=$cod") or die("ERRO NO SQL");
+ $sqlb = mysqli_query($link,"SELECT p.*, c.nome as nomeCat FROM catprodutos as c, produtos as p where p.cod=$cod") or die("ERRO NO SQL");
  $dados = mysqli_fetch_array($sqlb);
                     $nome = $dados['nome'];
                     $descricao = $dados['descricao'];
@@ -25,7 +25,7 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
                      <select name="categoria" class="form-control input-group2" required>
                      <option value="<?php echo $codCat ?>"><?php echo $categoria ?></option>
                      <?php
-                        $sqlc = mysqli_query($link,"SELECT * FROM catProdutos where status = 1 ORDER BY cod DESC") or die("ERRO NO SQL");
+                        $sqlc = mysqli_query($link,"SELECT * FROM catprodutos where status = 1 ORDER BY cod DESC") or die("ERRO NO SQL");
                         $rowc = mysqli_num_rows($sqlc);
                       if ($rowc <= 0) { echo "<br>Sem categorias cadastradas";}
                     while($rowc = mysqli_fetch_assoc($sqlc)){
@@ -237,7 +237,7 @@ else if (isset($_POST['cadastrar'])){
                     
 
                     ?>
-   <script src="jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
  $('.simCheckedProd').click(function(){    
                     $('.inputImagemProd').fadeIn(1000);                

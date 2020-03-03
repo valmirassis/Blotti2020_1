@@ -20,7 +20,7 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
 ?>
      <form action="destaqueBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
                        <input type="hidden" name="cod" value="<?php echo $cod?>">
-                     Nome: 
+                    Nome: 
                     <input type="text" name="nome" class="form-control input-group2" required value="<?php echo $nome ?>">
                     Link: 
                     <input type="url" name="linkpagina" class="form-control input-group2" required value="<?php echo $linkpagina ?>">
@@ -156,7 +156,7 @@ else if (isset($_POST['cadastrar'])){
                     
 
                     ?>
-   <script src="jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
  $('.simChecked').click(function(){    
                     $('.inputImagem').fadeIn(1000);                

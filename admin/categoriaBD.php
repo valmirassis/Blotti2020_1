@@ -10,7 +10,7 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
    <?php
  if (isset($_POST['documento'])){
  $cod = $_POST['documento'];
- $sqlb = mysqli_query($link,"SELECT c.*, s.nome as nomeSeriado FROM catProdutos as c, seriados as s where c.cod=$cod") or die("ERRO NO SQL");
+ $sqlb = mysqli_query($link,"SELECT c.*, s.nome as nomeSeriado FROM catprodutos as c, seriados as s where c.cod=$cod") or die("ERRO NO SQL");
  $dados = mysqli_fetch_array($sqlb);
                     $nome = $dados['nome'];
                     $descricao = $dados['descricao'];
@@ -86,7 +86,7 @@ else if (isset($_POST['cadastrar'])){
              
                  
                             // Insere os dados no banco
-                            $sql = mysqli_query($link,"INSERT INTO catProdutos(`cod`, `nome`,`descricao`,`foto`, `seriados`) VALUES 
+                            $sql = mysqli_query($link,"INSERT INTO catprodutos(`cod`, `nome`,`descricao`,`foto`, `seriados`) VALUES 
                       ('','$nome','$descricao', '$nomeFoto', '$seriados')") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
                  
                             // Se os dados forem inseridos com sucesso
@@ -159,7 +159,7 @@ else if (isset($_POST['cadastrar'])){
                         exit;
                         }
                         //pegar o nome da imagem para apagar
-                      $sqlb = mysqli_query($link,"SELECT foto FROM catProdutos where cod=$cod") or die("ERRO NO SQL");
+                      $sqlb = mysqli_query($link,"SELECT foto FROM catprodutos where cod=$cod") or die("ERRO NO SQL");
                       $dados = mysqli_fetch_array($sqlb);
                                          $foto = $dados['foto'];
                                          unlink($pasta.$foto);    
@@ -175,7 +175,7 @@ else if (isset($_POST['cadastrar'])){
                     
 
                     ?>
-   <script src="jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
  $('.simChecked').click(function(){    
                     $('.inputImagem').fadeIn(1000);                
