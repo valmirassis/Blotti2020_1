@@ -59,19 +59,221 @@
     <h3>Páginas</h3> 
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><a href="?page=Seriados">Videos</a></li>
-    <li class="list-group-item"><a href="?page=Categorias">Marcos</a></li>
+    <li class="list-group-item"><a href="?page=Videos">Videos</a></li>
+    <li class="list-group-item"><a href="?page=Marcos">Marcos</a></li>
     <!-- <li class="list-group-item"><a href="?page=Produtos">Feira</a></li> -->
   </ul>
 </div>
  </div>
 <div class="col-md-9">
 <div class="card">
+<?php
+
+if (isset($_GET['page'])){
+  $page = $_GET['page'];
+  ?>
+    <div class='card-header'> <h3>   <?php echo $page ?></h3>   </div>
+
+      <div class='card-body'>
+      <div class="direita">
+    <a href="#" data-toggle="modal" data-target="#modalCadastra<?php echo $page ?>" class="btn btn-success btn-blotti"> Cadastrar</a>
+</div>
+
+    <?php
+    if ($page == "Videos") {
+      $sqlv = mysqli_query($link,"SELECT * FROM videos") or die("ERRO NO SQL". mysqli_error());
+      $rowv = mysqli_num_rows($sqlv);
+    if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
+    while($rowv = mysqli_fetch_assoc($sqlv)){
+    $cod = $rowv['cod'];
+    $nome = $rowv['nome'];
+    $descricao = $rowv['descricao'];
+    $midia = $rowv['midia'];
+    $idVideo = $rowv['idVideo'];
+    $status = $rowv['status'];
+
+    $status == 1 ? $status = "Ativo" : $status = "Inativo";
+    
+    echo "<div class='alert alert-dark item' role='alert'> 
+    <div>  <b>$nome</b> - <b>Mídia: </b>$midia<br> <b>Descrição:</b> $descricao <br>";
+    echo "<b>Status:</b> $status  "; 
+    echo "</div><div>";
+    echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
+    <a href='videoBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+    </div></div>";
+}
+  echo "</div>";
+} else {
+  $sqlv = mysqli_query($link,"SELECT * FROM marcos") or die("ERRO NO SQL". mysqli_error());
+  $rowv = mysqli_num_rows($sqlv);
+if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
+while($rowv = mysqli_fetch_assoc($sqlv)){
+$cod = $rowv['cod'];
+$nome = $rowv['nome'];
+$status = $rowv['status'];
+$descricao = $rowv['descricao'];
+$ano = $rowv['ano'];
+$status == 1 ? $status = "Ativo" : $status = "Inativo";
+
+echo "<div class='alert alert-dark item' role='alert'> 
+<div>  <b>$nome</b> - <b>Ano: </b> $ano <br> <b>Descrição:</b> $descricao <br>";
+echo "<b>Status:</b> $status"; 
+echo "</div><div>";
+echo "<a href='' data-toggle='modal' data-target='#modalEdita$page' data-doc='$cod'><i class='fas fa-edit'></i></a>
+<a href='marcoBD.php?excluir&cod=$cod'><i class='fas fa-trash'></i></a>  
+</div></div>";
+}
+echo "</div>";
+}
+} else {
+  header ("Location: empresa.php?page=Marcos");
+}
+ ?>
     </div>
 
 </div>
     </div>
 </div>
 </section>
+
+<!-- Cadastra Vídeo -->
+<div class="modal fade " id="modalCadastraVideos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastro de Vídeo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="videoBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
+                    Nome: 
+                    <input type="text" name="nome" class="form-control input-group2" required>  
+                    
+                    Descrição: <textarea  name="descricao" class="form-control input-group2" required></textarea>
+                    Mídia:
+                    <select name="midia" class="form-control input-group2" required>
+                     <option value="Facebook"> Facebook</option>
+                     <option value="Youtube"> Youtube</option>
+                     </select>
+                    Código do vídeo: 
+                    <input type="text" name="idVideo" class="form-control input-group2" required>  
+                    
+                    <br> <br>
+                    <input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-success btn-block">
+                </form>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<!-- Edita Vídeo -->
+<div class="modal fade " id="modalEditaVideos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edição de Vídeo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="fetched-data-videos">
+          <!-- Vai abrir aqui o conteudo do arquivo anexo -->
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<!-- Cadastra Marco -->
+<div class="modal fade " id="modalCadastraMarcos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastro de Marco</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="videoBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
+                    Nome: 
+                    <input type="text" name="nome" class="form-control input-group2" required>  
+                    
+                    Descrição: <textarea  name="descricao" class="form-control input-group2" required></textarea>
+                    Ano:
+
+                    <select name="ano" class="form-control input-group2" required>
+                    <option></option>
+<?php
+
+$anoatual = date('Y');
+for ($i=2006;$i <= $anoatual;$i++) {
+  echo "<option> $i </option>";
+}
+?>
+                     
+                     </select>
+                     Foto: <input type="file" value="selecione" name="foto" class="form-control input-group2" required>
+                    
+                    <br> <br>
+                    <input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-success btn-block">
+                </form>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<!-- Edita Marco -->
+<div class="modal fade " id="modalEditaMarcos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edição de Marco</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="fetched-data-marcos">
+          <!-- Vai abrir aqui o conteudo do arquivo anexo -->
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="main.js"></script>
+<script>
+ $(document).ready(function(){
+  $('#modalEditaVideos').on('show.bs.modal', function (e) {
+    var documento = $(e.relatedTarget).data('doc');
+    $.ajax({
+      type : 'post', 
+      url : 'videoBD.php', 
+      data :  'documento='+ documento, 
+      success : function(data){
+        $('.fetched-data-videos').html(data);
+      } 
+    });
+  });
+  $('#modalEditaMarcos').on('show.bs.modal', function (e) {
+    var documento = $(e.relatedTarget).data('doc');
+    $.ajax({
+      type : 'post', 
+      url : 'popupBD.php', 
+      data :  'documento='+ documento, 
+      success : function(data){
+        $('.fetched-data-marcos').html(data);
+      } 
+    });
+  });
+
+});
+</script>
     </body>
     </html>
