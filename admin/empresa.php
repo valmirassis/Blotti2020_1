@@ -198,7 +198,7 @@ echo "</div>";
         </button>
       </div>
       <div class="modal-body">
-      <form action="videoBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
+      <form action="marcoBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
                     Nome: 
                     <input type="text" name="nome" class="form-control input-group2" required>  
                     
@@ -216,7 +216,8 @@ for ($i=2006;$i <= $anoatual;$i++) {
 ?>
                      
                      </select>
-                     Foto: <input type="file" value="selecione" name="foto" class="form-control input-group2" required>
+                     Foto Miniatura [200 x 200 px]: <input type="file" value="selecione" name="fotoMini" class="form-control input-group2" required>
+                     Foto principal: <input type="file" value="selecione" name="foto" class="form-control input-group2" required>
                     
                     <br> <br>
                     <input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-success btn-block">
@@ -231,7 +232,7 @@ for ($i=2006;$i <= $anoatual;$i++) {
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edição de Marco</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edição de Marco sss</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -265,7 +266,7 @@ for ($i=2006;$i <= $anoatual;$i++) {
     var documento = $(e.relatedTarget).data('doc');
     $.ajax({
       type : 'post', 
-      url : 'popupBD.php', 
+      url : 'marcoBD.php', 
       data :  'documento='+ documento, 
       success : function(data){
         $('.fetched-data-marcos').html(data);
