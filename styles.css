@@ -94,7 +94,17 @@ box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 21p
  }
 
 
+.redes-sociais {
+    text-align: center;
+padding: 20px;
+background-color: #000;
+border-top: 1px solid #fff;
+}
 
-
-
+.redes-sociais .fab{
+    font-size: 30px;
+}
+.redes-sociais a {
+    color: #fff;
+}
  

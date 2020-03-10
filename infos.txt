@@ -1,21 +1,21 @@
-Onde vai o trabalhe conosco?
-Menu principal com texto e imagens
+	Onde vai o trabalhe conosco?
+	Menu principal com texto e imagens
 
 Onde vão as redes sociais?
 acima do menu do footer
 
 
-Precisa de tantos campos no contato?
-retirar endereço e CEP
+	Precisa de tantos campos no contato?
+	retirar endereço e CEP
 
-Precisa de um item no menu para o catalogo, ou pode ir dentro da página de produtos?
-Menu principal
+	Precisa de um item no menu para o catalogo, ou pode ir dentro da página de produtos?
+	Menu principal
 
-Itens do submenu empresa?
-ok
-Mostrar a lista de futuras feiras na página inicial?
+	Itens do submenu empresa?
+	ok
 
-feiras no baner secundário
+	Mostrar a lista de futuras feiras na página inicial?
+	feiras no baner secundário
 
 Marcos importantes será estático?
 será dinâmico
@@ -35,5 +35,5 @@ Tamanho de imagens
 topo das páginas [1280 x300]
 carousel [1400 x 510]
 destaques home [400 x 240]
-produtos [500 x 400]? ver sobre tabela
+produtos [500 x 400]
 
