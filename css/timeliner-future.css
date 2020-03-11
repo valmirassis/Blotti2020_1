@@ -1,0 +1,207 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,400,700);
+/* ======= DEMO LAYOUT ======= */
+
+.container-tl {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  *zoom: 1;
+}
+
+.container-tl a:link, .container-tl a:visited {
+  color: #57a58e;
+  text-decoration: none;
+}
+.container-tl a:hover {
+  color: #7DBADF;
+}
+.container-tl a img {
+  border: none;
+}
+.container-tl p {
+  margin: 0 0 10px 8px;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.3em;
+}
+.lead {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+.clear {
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+}
+
+.timeline-container {
+  border-left: 4px solid rgba(0, 69, 121, 0.65);
+  margin: 20px auto;
+  max-width: 900px;
+}
+.timeline-container-tick {
+  background: rgba(0, 69, 121, 0.65);
+  content: "";
+  display: block;
+  height: 4px;
+  left: -8px;
+  width: 14px;
+  position: relative;
+}
+.timeline-container::before {
+  background: rgba(0, 69, 121, 0.65);
+  content: "";
+  display: block;
+  height: 4px;
+  left: -8px;
+  width: 14px;
+  position: relative;
+  top: -4px;
+}
+.timeline-container::after {
+  background: rgba(0, 69, 121, 0.65);
+  content: "";
+  display: block;
+  height: 4px;
+  left: -8px;
+  width: 14px;
+  position: relative;
+  top: 4px;
+}
+
+.timeline-wrapper {
+  clear: left;
+  float: left;
+  margin: 0 0 12px;
+  width: 100%;
+}
+.timeline-wrapper .timeline-time::before {
+  border-top: 4px solid rgba(0, 69, 121, 0.65);
+  content: "";
+  display: inline-block;
+  height: 4px;
+  margin-right: 0px;
+  vertical-align: middle;
+  width: 24px;
+}
+.timeline-wrapper .timeline-time {
+  cursor: pointer;
+  font-size: 2.8em;
+  font-weight: 400;
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+.timeline-wrapper .timeline-time span {
+  background: rgba(0, 69, 121, 0.65);
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-block;
+  letter-spacing: 0;
+  padding: 10px 10px 5px 10px;
+  text-align: center;
+}
+.timeline-wrapper .timeline-time span:hover {
+  background: #000;
+  -webkit-transition: background 0.2s ease-in;
+  -moz-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+.timeline-series {
+  clear: left;
+  float: left;
+  margin: 0 12px 0 0;
+  padding: 4px 4px 4px 0;
+  position: relative;	
+  width: 95%;
+}
+.timeline-series dt::before {
+  border-top: 3px solid rgba(0, 69, 121, 0.65);
+  content: "";
+  display: inline-block;
+  height: 3px;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 10px;
+}
+.timeline-series dt {
+  clear: left;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.timeline-series dt a {
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+.timeline-series dt a .closed {
+  color: #999;
+  font-size: 1em;
+  margin-left: 0;
+}
+.timeline-series dt a .open {
+  color: #7DBADF;
+}
+.timeline-series dt a:hover {
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: color 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -o-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+.timeline-series dd {
+  padding-left: 24px;
+  width: 100%;
+}
+
+.tick {
+  background:#57a58e;
+  clear: both;
+  display: block;
+  height: 2px;
+  left: 0;
+  width: 4px;
+  position: relative;
+}
+.tick-before {
+  top: -6px;
+}
+.tick-after {
+  top: -4px;
+}
+/* Texto e imagem */
+.timeline-event-content {
+  display: none;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+.timeline-event-content .texto {
+  font-size: 1.1em;
+  font-weight: 100;
+  line-height: 1.2em;
+  margin: 10px;
+  box-sizing: border-box;
+  /* min-height:400px; */
+}
+
+.timeline-event-content .media {
+  padding: 12px 12px;
+
+  text-align:center;
+  box-sizing: border-box;
+}
+.timeline-event-content .media img {
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 100px;
+  margin: 0 auto;
+  width:200px;
+  height:200px;
+  max-width: 200px;
+  box-sizing: border-box;
+  }
+

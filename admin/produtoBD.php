@@ -248,7 +248,7 @@ else if (isset($_POST['cadastrar'])){
  $('.simCheckedTab').click(function(){    
                     $('.inputImagemTab').fadeIn(1000);                
 }) ;
- $('.naoChecked').click(function(){    
+ $('.naoCheckedTab').click(function(){    
                     $('.inputImagemTab').fadeOut(1000);                
  }) ;
 </script>

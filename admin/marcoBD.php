@@ -16,6 +16,7 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
                     $nome = $dados['nome'];
                     $descricao = $dados['descricao'];
                     $foto = $dados['foto'];
+                    $fotoMini = $dados['fotomini'];
                     $ano = $dados['ano'];
                     $status = $dados['status'];
 ?>
@@ -42,12 +43,21 @@ $erro = "<script>alert('Ocorreu algum erro. Tente novamente!');</script><meta ht
                     Status:
                     <input type="radio" name="status" value="1" <?php if ($status == 1) echo "checked"; ?>> Ativo
                     <input type="radio" name="status" value="0" <?php if ($status == 0) echo "checked"; ?>>  Inativo<br>
-                    <input type="hidden" name="fotoAtual" value="<?php echo $foto?>">
-                    Foto:
-                    <img src="<?php echo $pasta.$foto?>" width="150px"> <br>
-                    Alterar imagem:
+                   
+                    <input type="hidden" name="fotoAtual" value="<?php echo $foto?>">                
+                    <input type="hidden" name="fotoAtualMini" value="<?php echo $fotoMini ?>">
+                    Foto Mini: <br>
+                    <img src="<?php echo $pasta.$fotoMini ?>" width="150px" style="border-radius: 75px;"> <br>
+                    Alterar foto Mini: 
+                    <input type="radio" name="alteraFotoMini" value="sim" class="simCheckedMini"> Sim
+                    <input type="radio" name="alteraFotoMini" value="nao" checked class="naoCheckedMini">  Não<br>
+                    <input type="file" value="selecione" name="fotoMini" class="form-control input-group2 inputImagemMini" style="display:none">
+                    <hr>
+                    Foto Principal: <br>
+                    <img src="<?php echo $pasta.$foto ?>" width="400px"> <br>
+                    Alterar foto principal: 
                     <input type="radio" name="alteraFoto" value="sim" class="simChecked"> Sim
-                    <input type="radio" name="alteraFoto" value="nao" checked class="naoChecked">  Não
+                    <input type="radio" name="alteraFoto" value="nao" checked class="naoChecked">  Não <br>
                     <input type="file" value="selecione" name="foto" class="form-control input-group2 inputImagem" style="display:none">
                     <br> <br>
                     <input type="submit" name="editar" value="Editar" class="btn btn-success btn-block">
@@ -114,7 +124,7 @@ else if (isset($_POST['cadastrar'])){
                  
                             // Insere os dados no banco
                             $sql = mysqli_query($link,"INSERT INTO marcos (`cod`, `nome`,`descricao`,`foto`,`fotomini`,`ano`) VALUES 
-                      ('','$nome','$descricao', '$nomeFoto', '$nomeFotoMini' '$ano')") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
+                      ('','$nome','$descricao', '$nomeFoto', '$nomeFotoMini', '$ano')") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
                  
                             // Se os dados forem inseridos com sucesso
                             if($sql) {
@@ -129,8 +139,11 @@ else if (isset($_POST['cadastrar'])){
                                 $ano = $_POST['ano'];
                                 $descricao = $_POST['descricao'];
                                 $alteraFoto = $_POST['alteraFoto'];
+                                $alteraFotoMini = $_POST['alteraFotoMini'];
                                 $status = $_POST['status'];
-                                $fotoAtual = $_POST['fotoAtual'];
+                                $fotoAtual = $_POST['fotoAtual'];                              
+                                $fotoAtualMini = $_POST['fotoAtualMini'];
+                              
                                 if ($alteraFoto == "sim"):
                                    unlink($pasta.$fotoAtual);
                                   if(isset($_FILES['foto']) && $_FILES['foto']['size'] > 0):  
@@ -146,13 +159,8 @@ else if (isset($_POST['cadastrar'])){
                                       endif;
                                
                                        // Verifica se o upload foi enviado via POST   
-                                       if(is_uploaded_file($_FILES['foto']['tmp_name'])):  
-                                            
-                                            // Verifica se o diretório de destino existe, senão existir cria o diretório  
-                                            if(!file_exists($pasta)):  
-                                                 mkdir($pasta);  
-                                            endif;  
-                                    
+                                       if(is_uploaded_file($_FILES['foto']['tmp_name'])):                                         
+                                                                                                                       
                                             // Monta o caminho de destino com o nome do arquivo  
                                             $caminho_imagem = $pasta . $foto["name"];
                                               $nomeFoto = $foto["name"];
@@ -162,11 +170,44 @@ else if (isset($_POST['cadastrar'])){
                                                  exit();  
                                             endif;  
                                        endif;  
-                                  endif;                
-                                  $sql = mysqli_query($link,"UPDATE marcos SET nome='$nome', descricao='$descricao', status=$status, foto='$nomeFoto', ano='$ano' WHERE cod=$cod ") or die ("Houve erro na gravação dos dados" . mysqli_error());              
-                                else:
+                                  endif;
+                                  $sql = mysqli_query($link,"UPDATE marcos SET foto='$nomeFoto' WHERE cod=$cod ") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
+                                endif;
+
+
+                        //  Alterar foto mini
+                        if ($alteraFotoMini == "sim"):
+                          unlink($pasta.$fotoAtualMini);
+                          
+                          if(isset($_FILES['fotoMini']) && $_FILES['fotoMini']['size'] > 0):  
+                            $fotoMini = $_FILES['fotoMini']; 
+                              $extensoes_aceitas = array('bmp' ,'png', 'svg', 'jpeg', 'jpg');
+                              $array_extensoes   = explode('.', $_FILES['fotoMini']['name']);
+                              $extensao = strtolower(end($array_extensoes));                     
+                               // Validamos se a extensão do arquivo é aceita
+                              if (array_search($extensao, $extensoes_aceitas) === false):
+                                    echo 'Extensão Inválida!';                              
+                                 exit(); 
+                              endif;                     
+                               // Verifica se o upload foi enviado via POST   
+                               if(is_uploaded_file($_FILES['fotoMini']['tmp_name'])):                                    
+                                                                                               
+                                    // Monta o caminho de destino com o nome do arquivo  
+                                    $caminho_imagem = $pasta . $fotoMini["name"];
+                                      $nomeFotoMini = $fotoMini["name"];
+                                    // Essa função move_uploaded_file() copia e verifica se o arquivo enviado foi copiado com sucesso para o destino  
+                                    if (!move_uploaded_file($_FILES['fotoMini']['tmp_name'], $caminho_imagem)):  
+                                        echo 'Houve um erro ao gravar arquivo na pasta de destino!'; 
+                                         exit();  
+                                    endif;  
+                               endif;  
+                          endif;
+                            $sql = mysqli_query($link,"UPDATE marcos SET fotomini='$nomeFotoMini' WHERE cod=$cod ") or die ("Houve erro na gravação dos dados" . mysqli_error());                    
+                       endif;           
+
+                               
                     $sql = mysqli_query($link,"UPDATE marcos SET nome='$nome', descricao='$descricao', status=$status, ano='$ano' WHERE cod=$cod") or die ("Houve erro na gravação dos dados" . mysqli_error()); 
-                endif;          
+                          
                 if($sql) {
                   echo $sucesso; 
                 } else {
@@ -176,10 +217,12 @@ else if (isset($_POST['cadastrar'])){
                   }  else if (isset($_GET['excluir'])){
                       $cod= $_GET['cod'];
    
-                      $sqlb = mysqli_query($link,"SELECT foto FROM marcos where cod=$cod") or die("ERRO NO SQL");
+                      $sqlb = mysqli_query($link,"SELECT foto, fotomini FROM marcos where cod=$cod") or die("ERRO NO SQL");
                       $dados = mysqli_fetch_array($sqlb);
                                          $foto = $dados['foto'];
-                                         unlink($pasta.$foto);                 
+                                         $fotoMini = $dados['fotomini'];
+                                         unlink($pasta.$foto);
+                                         unlink($pasta.$fotoMini);                                 
                     $sqld = mysqli_query($link,"DELETE FROM marcos where cod=$cod") or die("ERRO NO SQL");
                     if($sqld) {
                       echo $sucesso; 
@@ -195,9 +238,15 @@ else if (isset($_POST['cadastrar'])){
  $('.simChecked').click(function(){    
                     $('.inputImagem').fadeIn(1000);                
               }) ;
-              $('.naoChecked').click(function(){    
+$('.naoChecked').click(function(){    
                     $('.inputImagem').fadeOut(1000);                
               }) ;
+$('.simCheckedMini').click(function(){    
+                    $('.inputImagemMini').fadeIn(1000);                
+}) ;
+ $('.naoCheckedMini').click(function(){    
+                    $('.inputImagemMini').fadeOut(1000);                
+ }) ;
 </script>
 
 
