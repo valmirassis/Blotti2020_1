@@ -32,92 +32,56 @@
   <header>
 
   <?php
-include('admin/conecta.php');
 include('header.php');
 ?>
-<!-- POPUP -->
-<?php
-
-$sqlv = mysqli_query($link,"SELECT * FROM popups where status=1 ORDER BY cod DESC LIMIT 1") or die("ERRO NO SQL". mysqli_error());
-$rowv = mysqli_num_rows($sqlv);
-if ($rowv != 0) { 
-  $dados = mysqli_fetch_array($sqlv);
-  $foto = $dados['foto'];
-  $nome = $dados['nome'];
-?>
-
-<div id="popup" style="display:block">        
-    	<img src="img/xis.gif" width="20" height="20"  id="close-popup"><br>
- <img src="arquivos/layout/popups/<?php echo $foto ?>" alt="<?php echo $foto ?>" title="<?php echo $foto ?>"/>
-</div>
-<script>
-var close = document.getElementById('close-popup'); 
-var close2 = document.getElementById('popup'); 
-var popup = document.getElementById('popup'); 
-
-close.addEventListener("click", function() { popup.style.display = 'none'; }); 
-close2.addEventListener("click", function() { popup.style.display = 'none'; });  
-
-</script>
-<?php
-
-}
-
-?>
-<!-- /POPUP -->
             </header>
             <div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 80px;">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel" data-slide-to="1"></li>
+                  <li data-target="#carousel" data-slide-to="2"></li>
+                  <li data-target="#carousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="img/slide-1.jpg" alt="Primeiro Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2> Liderança </h2>
+                        <p>em movimentação segura</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="img/slide-2.jpg" alt="Segundo Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2> Segurança </h2>
+                        <p>em amarração de cargas</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="img/slide-3.jpg" alt="Terceiro Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2> Soluções </h2>
+                        <p>em cintas, lingas e dispositivos especiais</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="img/slide-4.jpg" alt="Quarto Slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2> Liderança </h2>
+                        <p>em movimentação segura</p>
+                      </div>
+                  </div>
 
-<?php
-$sqlv = mysqli_query($link,"SELECT * FROM carousel where status=1 ORDER BY posicao ASC") or die("ERRO NO SQL". mysqli_error());
-$rowv = mysqli_num_rows($sqlv);
-if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
-
-
-?>
-    <ol class="carousel-indicators">
-      <?php 
-      for($i=0;$i<$rowv;$i++){
-        echo "<li data-target='#carousel' data-slide-to='$i'></li>";
-      }
-      ?>
-     </ol>
-    <div class="carousel-inner">
-    <?php
-while($rowv = mysqli_fetch_assoc($sqlv)){
-
-$cod = $rowv['cod'];
-$nome = $rowv['nome'];
-$foto = $rowv['foto'];
-$frase = $rowv['frase'];
-$posicao = $rowv['posicao'];
-$parte1 = substr($frase, 0,  strpos($frase, " "));
-$parte2 = substr($frase, (strpos($frase, ' ')) + 1);
-    ?>
-    
-      <div class="carousel-item <?php if ($posicao == 1) echo 'active'?>">
-        <img class="d-block w-100" src="arquivos/layout/carousel/<?php echo $foto ?>" alt="<?php echo $nome ?>" title="<?php echo $nome ?>">
-        <div class="carousel-caption d-none d-md-block">
-            <h2> <?php echo $parte1 ?> </h2>
-            <p><?php echo $parte2 ?></p>
-          </div>
-      </div>
-  
-   
-      
-<?php 
-}
-?>
-    </div>
-    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Próximo</span>
-    </a>
-</div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Próximo</span>
+                </a>
+        </div>
 
         <section class="content">
           <div class="container">
@@ -168,29 +132,40 @@ $parte2 = substr($frase, (strpos($frase, ' ')) + 1);
         <section class="destaques">
 <div class="container">
   <div class="row">
-  <?php
-$sqlv = mysqli_query($link,"SELECT * FROM destaques where status=1 ORDER BY posicao ASC LIMIT 4") or die("ERRO NO SQL". mysqli_error());
-$rowv = mysqli_num_rows($sqlv);
-if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
-
-while($rowv = mysqli_fetch_assoc($sqlv)){
-
-$cod = $rowv['cod'];
-$nome = $rowv['nome'];
-$foto = $rowv['foto'];
-$linkpagina = $rowv['linkpagina'];
-
-    ?>
   <div class="col-md-3 col-sm">
-    <div class="destaque-item">
-       <a href="<?php echo $linkpagina ?>"><img src="arquivos/layout/destaques/<?php echo $foto ?>" alt="<?php echo $nome ?>" title="<?php echo $nome ?>"> </a>              
+                <div class="destaque-item">
+                  <a href=""><img src="img/destaques.jpg"> </a>
+                  
   </div>
+  
 </div>
-<?php } ?> 
+<div class="col-md-3 col-sm">
+                <div class="destaque-item">
+                  <a href=""><img src="img/destaques2.jpg"> </a>
+                  
+  </div>
+  
+</div>
+
+<div class="col-md-3 col-sm">
+                <div class="destaque-item">
+                  <a href=""><img src="img/destaques3.jpg"> </a>
+                  
+  </div>
+  
+</div>
+<div class="col-md-3 col-sm">
+                <div class="destaque-item">
+                  <a href=""><img src="img/destaques3.jpg"> </a>
+                  
+  </div>
+  
+</div>
+ 
 
 </div>
 </div>
 </section>
-<?php include ('footer.php'); ?>
+<?php include ('footer.php');?>
             </body>
             </html>

@@ -1,8 +1,8 @@
 	Onde vai o trabalhe conosco?
 	Menu principal com texto e imagens
 
-Onde vão as redes sociais?
-acima do menu do footer
+	Onde vão as redes sociais?
+	acima do menu do footer
 
 
 	Precisa de tantos campos no contato?
@@ -17,8 +17,8 @@ acima do menu do footer
 	Mostrar a lista de futuras feiras na página inicial?
 	feiras no baner secundário
 
-Marcos importantes será estático?
-será dinâmico
+	Marcos importantes será estático?
+	será dinâmico
 
 Página de serviços será estática?
 Sim
@@ -29,7 +29,7 @@ verificar
 Botão "Solicitar Orçamento" vai para a página de contato?
 Página específica 
 
-3 produtos por linha
+	3 produtos por linha
 
 Tamanho de imagens
 topo das páginas [1280 x300]

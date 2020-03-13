@@ -5,7 +5,7 @@
      <h1> B.lotti - Indústria da Movimentação</h1>
 <p>Todos os nossos produtos são resultados de inovação e ótimas ideias, <br>e pela busca incessantes de excelência para movimentação e amarração de cargas seguras.</p>
 <br>
-<a href="#" class="btn btn-success btn-blotti">Solicitar Orçamento</a>
+<a href="orcamento.php" class="btn btn-success btn-blotti">Solicitar Orçamento</a>
     </div>
   </div>
   <br>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Mar-2020 às 11:28
+-- Tempo de geração: 13-Mar-2020 às 21:16
 -- Versão do servidor: 10.4.8-MariaDB
--- versão do PHP: 7.1.33
+-- versão do PHP: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,10 @@ CREATE TABLE `carousel` (
 --
 
 INSERT INTO `carousel` (`cod`, `nome`, `frase`, `foto`, `status`, `posicao`) VALUES
-(2, 'Destaque 1', 'qualquer coisa', 'blotti_empresa.jpg', 1, 2);
+(1, 'Carousel 1', 'Liderança em movimentação segura', 'slide-1.jpg', 1, 1),
+(2, 'Carousel 2', 'Segurança em amarração de cargas', 'slide-2.jpg', 1, 2),
+(3, 'Carousel 3', 'Soluções em cintas, lingas e dispositivos especiais', 'slide-3.jpg', 1, 3),
+(4, 'Carousel 4', 'Segurança em amarração de cargas', 'slide-4.jpg', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -58,13 +61,6 @@ CREATE TABLE `catprodutos` (
   `seriados` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `catprodutos`
---
-
-INSERT INTO `catprodutos` (`cod`, `nome`, `descricao`, `foto`, `seriados`, `status`) VALUES
-(5, 'Categoria teste', 'Uma categoria de teste', 'destaque1.jpg', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -5670,7 +5666,10 @@ CREATE TABLE `destaques` (
 --
 
 INSERT INTO `destaques` (`cod`, `nome`, `linkpagina`, `foto`, `status`, `posicao`) VALUES
-(1, 'Destaque 3', 'https://mail.google.com/', 'cidades.PNG', 0, 4);
+(2, 'Destaque 1', 'http://localhost/blotti2020/servicos.php', 'destaques.jpg', 1, 1),
+(3, 'Destaque 2', 'http://localhost/blotti2020/produtos.php', 'destaques2.jpg', 1, 2),
+(4, 'Destaque 3', 'http://localhost/blotti2020/empresa.php', 'destaques3.jpg', 1, 3),
+(5, 'Destaque 4', 'http://localhost/blotti2020/trabalhe-conosco.php', 'blotti-trabalhe-conosco-1.jpg', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -5721,6 +5720,31 @@ INSERT INTO `estado` (`id`, `nome`, `uf`, `pais`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `marcos`
+--
+
+CREATE TABLE `marcos` (
+  `cod` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `descricao` text NOT NULL,
+  `ano` int(11) NOT NULL,
+  `fotomini` text NOT NULL,
+  `foto` text NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `marcos`
+--
+
+INSERT INTO `marcos` (`cod`, `nome`, `descricao`, `ano`, `fotomini`, `foto`, `status`) VALUES
+(4, 'Marco 1', 'Caros amigos, a infinita diversidade da realidade única nos obriga à análise das relações entre o conteúdo proposicional e o figurado. Por outro lado, a revolução copernicana, entendida como ruptura, cumpre um papel essencial na formulação da materialização do ser, em objetos visíveis, e da imaterialização do Não-ser, em não-objetos.', 2006, 'mini_2.jpg', 'destaque1.jpg', 1),
+(5, 'Marco 2', 'Assim mesmo, a estrutura atual da ideação semântica exige a precisão e a definição do sistema de conhecimento geral. Este é um problema que remete tanto à Epistemologia platônica, quanto à Dialética hegeliana, tendo em vista que o novo modelo estruturalista aqui preconizado é condição suficiente das posturas dos filósofos divergentes com relação às atribuições conceituais. ', 2007, 'mini_2.jpg', 'destaque4.jpg', 1),
+(6, 'Marco 3', 'Como Deleuze eloquentemente mostrou, o conceito de diáthesis e os princípios fundamentais de rhytmos e arrythmiston estabelece o chamado princípio da subsidência em que demonstra o abaixamento gradual do fundo paralelamente à sedimentação do sistema de formação de quadros que corresponde às necessidades lógico-estruturais. Não obstante, o complexo de castração, decorrente do Édipo feminino, representa a essência das definições conceituais da matéria. ', 2008, 'destaque2.jpg', 'destaque1.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pais`
 --
 
@@ -5745,17 +5769,17 @@ INSERT INTO `pais` (`id`, `nome`, `sigla`) VALUES
 
 CREATE TABLE `popups` (
   `cod` int(11) NOT NULL,
-  `nome` text NOT NULL,
-  `foto` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1
+  `foto` text NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `nome` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `popups`
 --
 
-INSERT INTO `popups` (`cod`, `nome`, `foto`, `status`) VALUES
-(1, 'teste', 0, 1);
+INSERT INTO `popups` (`cod`, `foto`, `status`, `nome`) VALUES
+(2, 'blotti-trabalhe-conosco-2.jpg', 1, 'Popup 1');
 
 -- --------------------------------------------------------
 
@@ -5773,13 +5797,6 @@ CREATE TABLE `produtos` (
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `produtos`
---
-
-INSERT INTO `produtos` (`cod`, `nome`, `descricao`, `categoria`, `foto_produto`, `foto_tabela`, `status`) VALUES
-(3, 'Produto 1', 'Produto teste', 5, 'destaque1.jpg', 'destaque2.jpg', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -5794,15 +5811,6 @@ CREATE TABLE `seriados` (
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `seriados`
---
-
-INSERT INTO `seriados` (`cod`, `nome`, `descricao`, `foto`, `status`) VALUES
-(1, 'G9', 'Um g8 qualquer', 'destaque4.jpg', 1),
-(2, 'G10', 'G10 G10', 'destaque2.jpg', 0),
-(4, 'G20', 'ok', 'destaque1.jpg', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -5812,6 +5820,7 @@ INSERT INTO `seriados` (`cod`, `nome`, `descricao`, `foto`, `status`) VALUES
 CREATE TABLE `usuario` (
   `cod` int(11) NOT NULL,
   `login` text NOT NULL,
+  `email` text NOT NULL,
   `senha` text NOT NULL,
   `nome` text NOT NULL,
   `tipo` int(11) NOT NULL,
@@ -5822,8 +5831,32 @@ CREATE TABLE `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`cod`, `login`, `senha`, `nome`, `tipo`, `setor`) VALUES
-(1, 'assis@rediscover.com.br', '123456', 'Assis', 1, '');
+INSERT INTO `usuario` (`cod`, `login`, `email`, `senha`, `nome`, `tipo`, `setor`) VALUES
+(1, 'assis', '', '123456', 'Assis', 1, ''),
+(2, 'blotti', 'md2@blotti.com.br', '13579', 'Admin Blotti', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `videos`
+--
+
+CREATE TABLE `videos` (
+  `cod` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `descricao` text NOT NULL,
+  `midia` text NOT NULL,
+  `idVideo` text NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `videos`
+--
+
+INSERT INTO `videos` (`cod`, `nome`, `descricao`, `midia`, `idVideo`, `status`) VALUES
+(5, 'Um vídeo qualquer do Youtube', ' Por outro lado, a revolução copernicana, entendida como ruptura, cumpre um papel essencial na formulação da materialização do ser, em objetos visíveis, e da imaterialização do Não-ser, em não-objetos', 'Youtube', 'QY0Kdg83orY', 1),
+(6, 'Um vídeo qualquer do Facebook', ' Por outro lado, a revolução copernicana, entendida como ruptura, cumpre um papel essencial na formulação da materialização do ser, em objetos visíveis, e da imaterialização do Não-ser, em não-objetos', 'Facebook', '448548206093586', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -5863,6 +5896,12 @@ ALTER TABLE `estado`
   ADD KEY `fk_Estado_pais` (`pais`);
 
 --
+-- Índices para tabela `marcos`
+--
+ALTER TABLE `marcos`
+  ADD PRIMARY KEY (`cod`);
+
+--
 -- Índices para tabela `pais`
 --
 ALTER TABLE `pais`
@@ -5893,6 +5932,12 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`cod`);
 
 --
+-- Índices para tabela `videos`
+--
+ALTER TABLE `videos`
+  ADD PRIMARY KEY (`cod`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -5900,13 +5945,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `catprodutos`
 --
 ALTER TABLE `catprodutos`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `cidade`
@@ -5918,13 +5963,19 @@ ALTER TABLE `cidade`
 -- AUTO_INCREMENT de tabela `destaques`
 --
 ALTER TABLE `destaques`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `estado`
 --
 ALTER TABLE `estado`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de tabela `marcos`
+--
+ALTER TABLE `marcos`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `pais`
@@ -5936,19 +5987,25 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de tabela `popups`
 --
 ALTER TABLE `popups`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `seriados`
 --
 ALTER TABLE `seriados`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restrições para despejos de tabelas

@@ -44,28 +44,18 @@ include('header.php');
 
         <section class="content">
           <div class="container">
-    <h2 class="titulo-pagina"> <i class="fas fa-angle-double-right"></i> Trabalhe Conosco</h2>
+    <h2 class="titulo-pagina"> <i class="fas fa-angle-double-right"></i> Orçamento</h2>
 
                  
-                  <div class="row trabalhe-conosco">
+                  <div class="row orcamento">                    
                   <div class="col-md-6 col-sm">
-          <p> O que caracteriza o relativismo, com efeito, é quando o acompanhamento do estágio pré-genital nos obriga à análise das condições epistemológicas e cognitivas exigidas. </p>
-          <p>Por outro lado, a complexidade dos estudos efetuados cumpre um papel essencial na formulação da fundamentação metafísica das representações. Assim mesmo, a estrutura atual da ideação semântica exige a precisão e a definição do sistema de conhecimento geral.</p>
-
-          <p>  No entanto, não podemos esquecer que o novo modelo estruturalista aqui preconizado acarreta um processo de reformulação e modernização das posturas dos filósofos divergentes com relação às atribuições conceituais. </p>
-          <p>Do mesmo modo, a indeterminação contínua de distintas formas de fenômeno não sistematiza a estrutura do dualismo ontológico das filosofias pré-hegelianas? Deixemos a questão em aberto. </p>
+                 <p>Já conhece toda nossa linha de produtos?<br>
+                    <a href="produtos.php" class="btn btn-success">Ver Produtos</a></p>
+                    <p>Aproveite também para acessar no catalogo em formato PDF <br>
+                    <a href="http://conteudo.blotti.com.br/catalogo" target="_blank" class="btn btn-success">Acessar Catálogo</a></p>
                   </div>
-                  <div class="col-md-6 col-sm imagem">
-                  <img src="img/blotti-trabalhe-conosco-1.jpg">
-                  </div>
-                  
-                 
-                  <div class="col-md-6 col-sm imagem">
-                  <img src="img/blotti-trabalhe-conosco-2.jpg">
-                  </div>
-
                   <div class="col-md-6 col-sm">
-                  <h3>Envie seu currículo</h3>
+                  <h3>Solicitar Orçamento</h3>
                   <form action="seriadoBD.php" method="POST" name="frmcadastra" id="frmcadastra" enctype="multipart/form-data">
                   <div class="input-group input-group2">
                                 <div class="input-group-prepend">
@@ -91,16 +81,23 @@ include('header.php');
 
                               <div class="input-group input-group2">
                                 <div class="input-group-prepend">
+                                  <div class="input-group-text" id="btnGroupAddon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                </div>
+                                <input type="text" id="empresa" class="form-control" placeholder="Empresa" aria-label="Informe sua Empresa" aria-describedby="btnGroupAddon" name="empresa" required>
+                              </div>
+
+                              <div class="input-group input-group2">
+                                <div class="input-group-prepend">
                                   <div class="input-group-text" id="btnGroupAddon"><i class="fas fa-comments"></i></div>
                                 </div>
                                 <textarea id="mensagem" name="mensagem" class="form-control textarea" required></textarea>
                               </div>
-                              
-                    <b>Currículo (PDF):</b> <input type="file" value="selecione" name="foto" class="form-control input-group2" required>
-                    <br> 
-                    <input type="submit" name="cadastrar" value="Enviar" class="btn btn-success btn-block">
+                              <br>
+                                     <input type="submit" name="cadastrar" value="Enviar" class="btn btn-success btn-block">
                 </form>
                   </div>
+
+                 
                   </div>
                
                    

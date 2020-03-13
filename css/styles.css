@@ -108,14 +108,41 @@ border-top: 1px solid #fff;
     color: #fff;
 }
  
+/* Acordion vídeos */
+h4.acordc{ cursor: pointer; background:#292929; margin: 0px; color: #f7f7f7; 
+    font-weight:500; padding:.75rem 1.25rem;border-bottom: 1px solid rgba(0,0,0,.125); font-size:1.25rem}    
+h4.acordc:hover, .acordc .fa:hover { color: #57a58e!important} 
+div.acordc{ display: none; padding:.75rem 1.25rem } 
 
-h4.acordcsc{ cursor: pointer; background:#292929; margin: 0px; color: #f7f7f7; 
-    font-weight:500; padding:.75rem 1.25rem;border-bottom: 1px solid rgba(0,0,0,.125); font-size:1.25rem} 
-    
-h4.acordcsc:hover, .acordcsc .fa:hover { color: #57a58e!important} div.acordcsc{ display: none; padding:.75rem 1.25rem } .acordcsc0 {border: 1px solid rgba(0,0,0,.125); margin-top: 5px;}
+.acordc0 {border: 1px solid rgba(0,0,0,.125); margin-top: 5px;}
 .video-container {
     position: relative; width: 100%; height: 0; padding-bottom: 56.25%;
 }
 .video-container iframe {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0px;
 } 
+/* Trabalhe conosco */
+.trabalhe-conosco img {
+    max-width: 80%;
+
+-webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 21px 5px rgba(0,0,0,0); 
+box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 21px 5px rgba(0,0,0,0);
+
+}
+.trabalhe-conosco .imagem {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* Orçamento */
+.orcamento p {
+    text-align: center;
+    font-size: 1.8em;
+    margin: 20px;
+}
+/* Popup */
+
+#popup {   position: absolute;   margin: 0 auto;  top: 50%;  left: 50%;  transform: translate(-50%, -50%); z-index: 1000; display:none }
+#close-popup{ position:absolute;  width:20px;    border:none;   margin:0px; cursor: pointer; z-index: 1001;  } 
