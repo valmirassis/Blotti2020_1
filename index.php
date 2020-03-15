@@ -32,7 +32,7 @@
   <header>
 
   <?php
-include('admin/conecta.php');
+include('conecta.php');
 include('header.php');
 ?>
 <!-- POPUP -->
@@ -48,7 +48,7 @@ if ($rowv != 0) {
 
 <div id="popup" style="display:block">        
     	<img src="img/xis.gif" width="20" height="20"  id="close-popup"><br>
- <img src="arquivos/layout/popups/<?php echo $foto ?>" alt="<?php echo $foto ?>" title="<?php echo $foto ?>"/>
+ <img src="http://www.blotti.com.br/arquivos/layout/popups/<?php echo $foto ?>" alt="<?php echo $foto ?>" title="<?php echo $foto ?>" style="max-width:500px"/>
 </div>
 <script>
 var close = document.getElementById('close-popup'); 
@@ -96,7 +96,7 @@ $parte2 = substr($frase, (strpos($frase, ' ')) + 1);
     ?>
     
       <div class="carousel-item <?php if ($posicao == 1) echo 'active'?>">
-        <img class="d-block w-100" src="arquivos/layout/carousel/<?php echo $foto ?>" alt="<?php echo $nome ?>" title="<?php echo $nome ?>">
+        <img class="d-block w-100" src="http://www.blotti.com.br/arquivos/layout/carousel/<?php echo $foto ?>" alt="<?php echo $nome ?>" title="<?php echo $nome ?>">
         <div class="carousel-caption d-none d-md-block">
             <h2> <?php echo $parte1 ?> </h2>
             <p><?php echo $parte2 ?></p>
@@ -123,43 +123,31 @@ $parte2 = substr($frase, (strpos($frase, ' ')) + 1);
           <div class="container">
           <div clas="destaque-home">
             <div class="row">
+            <?php
+$sqlv = mysqli_query($link,"SELECT * FROM seriados where status=1 ORDER BY nome ASC LIMIT 6") or die("ERRO NO SQL". mysqli_error());
+$rowv = mysqli_num_rows($sqlv);
+if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
+
+while($rowv = mysqli_fetch_assoc($sqlv)){
+
+$cod = $rowv['cod'];
+$nome = $rowv['nome'];
+$foto = $rowv['foto'];
+
+
+    ?>
               <div class="col-md-4 col-sm">
                 <div class="destaque-item">
-                  <a href=""><img src="img/destaque1.jpg">
-                  <h4>Seriado 1 </h4> </a>
+                  <a href="produtos.php?seriado=<?php  echo $nome ?>"><img src="http://www.blotti.com.br/arquivos/produtos/seriados/<?php echo $foto ?>" alt="<?php echo $nome ?>" title="<?php echo $nome ?>">
+                  <h4><?php  echo $nome ?> </h4> </a>
                 </div>
               </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque2.jpg">
-                  <h4>Seriado 2 </h4> </a>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque3.jpg">
-                  <h4>Seriado 3 </h4> </a>
-                </div>
-            
-              </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque4.jpg">
-                  <h4>Seriado 4 </h4> </a>
-                </div> 
-              </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque2.jpg">
-                  <h4>Seriado 5 </h4> </a>
-                </div> 
-              </div>
-              <div class="col-md-4 col-sm">
-                <div class="destaque-item">
-                <a href="">  <img src="img/destaque1.jpg">
-                  <h4>Seriado 6 </h4> </a>
-                </div> 
-              </div>
+
+              
+              <?php } ?>         
+             
+             
+              
 
             </div>
            
@@ -183,7 +171,9 @@ $linkpagina = $rowv['linkpagina'];
     ?>
   <div class="col-md-3 col-sm">
     <div class="destaque-item">
-       <a href="<?php echo $linkpagina ?>"><img src="arquivos/layout/destaques/<?php echo $foto ?>" alt="<?php echo $nome ?>" title="<?php echo $nome ?>"> </a>              
+       <a href="<?php echo $linkpagina ?>"><img src="http://www.blotti.com.br/arquivos/layout/destaques/<?php echo $foto ?>" alt="<?php echo $nome ?>" title="<?php echo $nome ?>">
+       
+        </a>              
   </div>
 </div>
 <?php } ?> 

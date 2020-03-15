@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm text-center">
      <h1> B.lotti - Indústria da Movimentação</h1>
-<p>Todos os nossos produtos são resultados de inovação e ótimas ideias, <br>e pela busca incessantes de excelência para movimentação e amarração de cargas seguras.</p>
+<p>Todos os nossos produtos são resultados de inovação e ótimas ideias, <br>e pela busca incessante de excelência para movimentação e amarração de cargas seguras.</p>
 <br>
 <a href="orcamento.php" class="btn btn-success btn-blotti">Solicitar Orçamento</a>
     </div>
@@ -69,8 +69,30 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        © 2020 | POLÍTICA DA PRIVACIDADE | COMPLIENCE | CERTIFICADOS | INTRANET | EXTRANET
+        © 2020 | <a href="empresa.php?politica"> POLÍTICA DA PRIVACIDADE </a> |
+         <a href="empresa.php?complience">COMPLIENCE </a> | 
+         <a href="empresa.php?certificados">CERTIFICADOS</a> | 
+         <a href="http://blotti.com.br/intranet/" target="_blank"> INTRANET </a> | <a href="http://187.85.166.116:8080/crm/" target="_blank">EXTRANET</a>
       </div>
     </div>
   </div>
 </section>
+<script type="text/javascript">
+    (function () {
+        var options = {
+            facebook: "1461380190775331", // Facebook page ID
+            whatsapp: "+55 (47) 99260 8612", // WhatsApp number
+            email: "blotti@blotti.com.br", // Email
+            company_logo_url: "//storage.whatshelp.io/widget/7e/7ebb/7ebbcfa0a95371023e7748be1eafeca5/11228518_1653306254916056_2237944623274246414_n.jpg", // URL of company logo (png, jpg, gif)
+            greeting_message: "Olá! Como podemos te ajudar? Nos mande uma mensagem!", // Text of greeting message
+            call_to_action: "Converse com a gente!", // Call to action
+            button_color: "#000000", // Color of button
+            position: "right", // Position may be 'right' or 'left'
+            order: "facebook,whatsapp,email" // Order of buttons
+        };
+        var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+</script>

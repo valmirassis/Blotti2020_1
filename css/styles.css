@@ -21,6 +21,13 @@ img { max-width: 100%;}
     color: #fff;
 
 }
+.footer2 a {
+    color: #fff;
+}
+.footer2 a:hover {
+    color: #57a58e;
+    text-decoration: none;
+}
 .content {
  background-color: #cccccc;
  padding-top: 20px;

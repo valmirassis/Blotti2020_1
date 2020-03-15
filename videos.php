@@ -1,4 +1,3 @@
-
 <link href="https://unpkg.com/nanogallery2/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="https://unpkg.com/nanogallery2/dist/jquery.nanogallery2.min.js"></script>
 
@@ -6,7 +5,7 @@
 
 
 <?php
-include ('admin/conecta.php');
+include ('conecta.php');
 $sqlv = mysqli_query($link,"SELECT * FROM videos where status=1 ORDER BY cod DESC") or die("ERRO NO SQL". mysqli_error());
       $rowv = mysqli_num_rows($sqlv);
     if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
@@ -19,7 +18,7 @@ $sqlv = mysqli_query($link,"SELECT * FROM videos where status=1 ORDER BY cod DES
    
 ?>
  <div class="acordc0">
-	<h4 class="acordc"><i class="fa fa-film" style="font-size: 110%; vertical-align:middle;" aria-hidden="true"></i> <?php echo $nome ?><br></h4>
+	<h4 class="acordc"><i class="fa fa-film" style="font-size: 110%; vertical-align:middle;" aria-hidden="true"></i> <?php echo $nome ?><br></h4>
 	<div class="acordc" style="display: none;">
     
     <p>  <?php echo $descricao ?> </p>
@@ -91,6 +90,5 @@ echo "<a href='https://www.facebook.com/plugins/video.php?href=https://www.faceb
 
 
 <script>
-$('h4.acordcsc').click(function(){ $('div.acordcsc:visible').stop().slideUp("slow"); $(this).next('div.acordcsc').stop().slideToggle("slow"); });
+$('h4.acordc').click(function(){ $('div.acordc:visible').stop().slideUp("slow"); $(this).next('div.acordc').stop().slideToggle("slow"); });
 </script>
-		

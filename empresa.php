@@ -52,13 +52,13 @@ include('header.php');
                   <a class="nav-link" href="?marcos-importantes">Marcos Importantes</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Certificados</a>
+                  <a class="nav-link" href="?certificados">Certificados</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="?videos">Videos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Complience</a>
+                    <a class="nav-link" href="?complience">Complience</a>
                   </li>
                   </ul>
 <hr>
@@ -68,6 +68,12 @@ if (isset($_GET['marcos-importantes'])) {
 include('marcos-importantes.php');
 } else if (isset($_GET['videos'])) {
   include('videos.php');
+}else if (isset($_GET['certificados'])) {
+  include('certificados.php');
+}else if (isset($_GET['complience'])) {
+  include('complience.php');
+}else if (isset($_GET['politica'])) {
+  include('politica.php');
 }
 else {
 ?>

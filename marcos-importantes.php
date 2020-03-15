@@ -7,7 +7,7 @@
 		<div id="timeline" class="timeline-container">
 
 <?php
-include ('admin/conecta.php');
+include ('conecta.php');
 $sqlv = mysqli_query($link,"SELECT * FROM marcos where status=1 ORDER BY ano DESC") or die("ERRO NO SQL". mysqli_error());
 $rowv = mysqli_num_rows($sqlv);
 if ($rowv <= 0) { echo "<br>Sem itens cadastrados";}
@@ -29,7 +29,7 @@ $fotoMini = $rowv['fotomini'];
         <span class="tick tick-after"></span>
         <dd class="timeline-event-content" id="marco<?php echo $ano?>EX">
             <div class="media">
-                <a href="arquivos/empresa/marcos/<?php echo $foto ?>" class="venobox" data-type="image/jpg" data-overlay="rgba(0,0,0,0.5)"><img src="arquivos/empresa/marcos/<?php echo $fotoMini ?>" alt="<?php echo $nome ?>" width="200"></a>
+                <a href="http://www.blotti.com.br/arquivos/empresa/marcos/<?php echo $foto ?>" class="venobox" data-type="image/jpg" data-overlay="rgba(0,0,0,0.5)"><img src="http://www.blotti.com.br/arquivos/empresa/marcos/<?php echo $fotoMini ?>" alt="<?php echo $nome ?>" width="200"></a>
                 
             </div><!-- /.media -->
 <div class="texto">

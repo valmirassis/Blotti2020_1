@@ -51,7 +51,7 @@ include('header.php');
                   <div class="col-md-6 col-sm">
                  <p>Já conhece toda nossa linha de produtos?<br>
                     <a href="produtos.php" class="btn btn-success">Ver Produtos</a></p>
-                    <p>Aproveite também para acessar no catalogo em formato PDF <br>
+                    <p>Aproveite também para acessar nosso catalogo em formato PDF <br>
                     <a href="http://conteudo.blotti.com.br/catalogo" target="_blank" class="btn btn-success">Acessar Catálogo</a></p>
                   </div>
                   <div class="col-md-6 col-sm">
